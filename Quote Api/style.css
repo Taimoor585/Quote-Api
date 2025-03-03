@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  height: 100vh;
+  background-color: #0a001f;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 0, 255, 0.4), transparent);
+  animation: rotate-glow 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate-glow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.quote-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px cyan;
+}
+
+.generate-btn {
+  background: none;
+  border: 2px solid cyan;
+  color: cyan;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.generate-btn:hover {
+  background-color: cyan;
+  color: #0a001f;
+  box-shadow: 0 0 30px cyan;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid cyan;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.1s ease-out, background 0.3s;
+}
+
+body:hover .custom-cursor {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: cyan;
+}
+
+.generate-btn.btn-clicked {
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.8);
+}
